@@ -35,7 +35,19 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-origins = [settings.frontend_origin, "http://127.0.0.1:5173", "http://localhost:5173"]
+origins = [
+    "https://dealguardainew.vercel.app",
+    "http://127.0.0.1:5173",
+    "http://localhost:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app.add_middleware(CORSMiddleware, allow_origins=origins, allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 
 for router in [system.router, catalog.router, policies.router, deals.router, approvals.router, payments.router,
