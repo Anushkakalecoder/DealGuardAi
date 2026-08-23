@@ -5,7 +5,7 @@ pydantic-settings==2.10.1
 sqlalchemy==2.0.43
 psycopg[binary]==3.2.9
 razorpay==1.4.2
-setuptools
+setuptools<82
 groq==0.31.0
 python-dotenv==1.1.1
 httpx==0.28.1
